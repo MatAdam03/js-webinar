@@ -27,7 +27,7 @@ function fibonacci(n) {
         nThFibonacci=0;
     }
     
-    // ...AND THIS COMMENT LINE!
+    // ...AND THIS COMMENT LINE
     return nThFibonacci;
 }
 module.exports = fibonacci;
