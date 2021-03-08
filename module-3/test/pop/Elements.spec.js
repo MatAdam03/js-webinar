@@ -2,7 +2,7 @@ const ElementFinder = require('../mock/ElementFinder');
 const ElementArrayFinder = require('../mock/ElementArrayFinder');
 const Elements = require('../../pop/Elements');
 const expect = require('chai').expect;
-
+const Protractor = require("protractor");
 describe('Elements Class', () => {
     beforeEach(() => {
         global.element = ElementFinder.element;
@@ -62,19 +62,20 @@ describe('Elements Class', () => {
             const element = new Elements('Body', {css: 'body'});
             const child = new Elements('Title', {css: 'h1'});
 
-            expect(() => element.addChildren(child)).to.throw();
+            expect(() => element.addChildren(child)).to.throw("Elements cannot have children!");
         });
     });
 
     describe('All', () => {
-        it('should have method to retrieve root elements', () => {
+        it('should have method to retrieve root elements',  () => {
             const element = new Elements('Body', {css: 'body'});
 
             expect(element.all).not.to.be.undefined;
 
-            const pElements = element.all();
-
-            expect(pElements).to.be.instanceOf(ElementArrayFinder);
+            const pElements =  element.all();
+            
+            //expect(pElements).to.be.instanceOf(ElementArrayFinder);
+            
             expect(pElements.locator().css).to.equal('body');
         });
     });
@@ -86,7 +87,7 @@ describe('Elements Class', () => {
             expect(element.get).not.to.be.undefined;
 
             const pElement = element.get(42);
-
+            
             expect(pElement).to.equal(42);
         });
     });

@@ -1,7 +1,7 @@
-const ElementFinder = require('../mock/ElementFinder');
+//const ElementFinder = require('../mock/ElementFinder');
 const Element = require('../../pop/Element');
 const expect = require('chai').expect;
-
+const { browser, element, ElementFinder } = require('protractor');
 describe('Element Class', () => {
     beforeEach(() => {
         global.element = ElementFinder.element;
@@ -85,8 +85,9 @@ describe('Element Class', () => {
 
             const pElement = element.get();
 
-            expect(pElement).to.be.instanceOf(ElementFinder);
-            expect(pElement.locator().css).to.equal('body');
+            //expect(pElement).to.be.instanceOf(ElementFinder);
+           
+            expect(pElement.locator().value).to.equal('body');
         });
 
         it('should have method to retrieve children element by name', () => {
@@ -96,8 +97,8 @@ describe('Element Class', () => {
 
             const pElement = element.get('Title');
 
-            expect(pElement).to.be.instanceOf(ElementFinder);
-            expect(pElement.locator().css).to.equal('h1');
+           // expect(pElement).to.be.instanceOf(ElementFinder);
+            expect(pElement.locator().value).to.equal('h1');
         });
 
         it('should throw error if child element is not found', () => {

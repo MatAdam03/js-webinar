@@ -15,3 +15,56 @@
  *       the given name or throws an Erorr if it cannot
  *       find the element
  */
+'use strict';
+const { element } = require('../test/mock/ElementFinder');
+const Protractor = require("protractor");
+const ElementFinder = require('../test/mock/ElementFinder');
+class Element {
+    constructor(name, locator) {
+        this.locator = locator;
+        this.name = name;
+        this.parent = null;
+        this.children = {};
+
+    }
+
+    setParent(parent) {
+        this.parent = parent;
+    }
+    addChildren(child) {
+        if (this.children.hasOwnProperty(child.name)) {
+            throw new Error(child.name + "is already added!");
+        }
+        this.children[child.name] = child;
+    }
+    get(name, depth = 0) {
+        let root;
+        if (arguments.length === 0) {
+            return Protractor.element(by.css(this.locator.css));
+        }
+        else {
+            for (const [key, value] of Object.entries(this.children)) {
+                if (value.name === name) {
+                    return Protractor.element(by.css(value.locator.css));
+                }
+                else if (Object.entries(this.children[key].children).length !== 0) {
+                    let tmp = this.children[key].get(name, depth + 1);
+                    if (tmp) {
+                        root = tmp;
+                    }
+
+                }
+
+            }
+
+        }
+        if (depth === 0 && !root) {
+            throw new Error("not found");
+        }
+        return root;
+
+
+    }
+}
+
+module.exports = Element;

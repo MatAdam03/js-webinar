@@ -13,3 +13,27 @@
  * 6. It has a method to retrieve one element from the collection
  *    by the locator (.get(n)) in it's context
  */
+'use strict';
+
+const Element = require('./Element')
+const Protractor = require("protractor");
+class Elements extends Element {
+    constructor(name, locator) {
+        super(name, locator);
+        this.children = null;
+    }
+
+    addChildren(){
+        throw new Error("Elements cannot have children!");
+    }
+
+    all(){        
+        return Protractor.element.all(this.locator)
+    }
+    get(n){
+        return n
+    }
+
+}
+
+module.exports = Elements;

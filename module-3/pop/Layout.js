@@ -14,3 +14,56 @@
  * 7. It has a method to load the page, i.e. Navigates to
  *    the URL of it (.load())
  */
+'use strict';
+const ElementFinder = require('../test/mock/ElementFinder');
+const Browser = require('../test/mock/Browser');
+const Protractor = require("protractor");
+
+class Layout {
+    constructor(name, url, locator) {
+        this.locator = locator;
+        this.url = url;
+        this.name = name;
+        this.parent = null;        
+        this.children = {};        
+    }
+    setParent() {
+        throw new Error();
+    }
+    addChildren(child) {
+        if (this.children.hasOwnProperty(child.name)) {
+            throw new Error(child.name + "is already added!");
+        }        
+       
+        this.children[child.name] = child;
+                   
+    }
+
+    get(name) {
+        if (arguments.length === 0) {
+            
+            const root = Protractor.element(by.css(this.locator));
+            return root;
+        }
+        else {
+            if (this.children.hasOwnProperty(name)) {
+               
+                const element = Protractor.element(by.css(this.children[name].locator));
+                return element;
+            }
+            else {
+                throw new Error();
+            }
+
+        }
+
+
+    }
+    load(){
+       
+        return new Browser().get(this.url);
+    }
+
+}
+
+module.exports = Layout;

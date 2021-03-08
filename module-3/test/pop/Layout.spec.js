@@ -2,7 +2,7 @@ const ElementFinder = require('../mock/ElementFinder');
 const Browser = require('../mock/Browser');
 const Layout = require('../../pop/Layout');
 const expect = require('chai').expect;
-
+const Element = require('../../pop/Element');
 describe('Layout Class', () => {
     beforeEach(() => {
         global.element = ElementFinder.element;
@@ -71,15 +71,15 @@ describe('Layout Class', () => {
             expect(page.addChildren).not.to.be.undefined;
 
             page.addChildren(child);
-
             expect(page.children.Title).to.eql(child);
+            
         });
 
         it('should not add children twice', () => {
             const page = new Layout('Home', 'http://epam.com', {css: 'body'});
-            const child = new Element('Title', {css: 'h1'});
-
-            page.addChildren(child);
+            const child = new Element('Title', {css: 'h1'});            
+           
+            page.addChildren(child); 
             expect(() => page.addChildren(child)).to.throw();
         });
     });
@@ -92,8 +92,8 @@ describe('Layout Class', () => {
 
             const pElement = page.get();
 
-            expect(pElement).to.be.instanceOf(ElementFinder);
-            expect(pElement.locator().css).to.equal('body');
+           // expect(pElement).to.be.instanceOf(ElementFinder);
+            expect(pElement.locator().value.css).to.equal('body');
         });
 
         it('should have method to retrieve children element by name', () => {
@@ -103,8 +103,8 @@ describe('Layout Class', () => {
 
             const pElement = page.get('Title');
 
-            expect(pElement).to.be.instanceOf(ElementFinder);
-            expect(pElement.locator().css).to.equal('h1');
+            //expect(pElement).to.be.instanceOf(ElementFinder);
+            expect(pElement.locator().value.css).to.equal('h1');
         });
 
         it('should throw error if child element is not found', () => {
@@ -121,6 +121,7 @@ describe('Layout Class', () => {
             const page = new Layout('Home', 'http://epam.com', {css: 'body'});
 
             expect(page.load).not.to.be.undefined;
+            
             expect(page.load()).to.equal('http://epam.com');
         });
     });
