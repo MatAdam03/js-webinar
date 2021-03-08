@@ -1,0 +1,19 @@
+MODIFIED CONDITION/ DECISION TESTING
+
+
+public boolean isFast(String engine, String color){
+    if(engine == "Mercedes" || color == "Red"){
+        return true;
+    }else {
+        return false;
+    }
+};
+
+A:[engine == "Mercedes"]
+B:[color == "Red"]
+
+TESTCASES
+1. A:true      B:true      |||    result: true
+2. A:false      B:true      |||    result: true
+3. A:false      B:false      |||    result: false
+

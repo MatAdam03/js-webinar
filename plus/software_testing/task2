@@ -1,0 +1,30 @@
+REQUIREMENT REVIEW
+
+
+HIGHLIGHTS
+1, What if the number of accidents exactly 5?
+2, What if the car is older than 10 year and more than 5 accidents?
+
+
+
+DECISION TABLE
+
+if accidents more than 5 = T
+if accidents less than 5 = F
+
+if type of car is SPECIAL = T
+if type of car is  NOT SPECIAL = F
+
+if age of car is over 10 years = T
+if age of car is under 10 years = F
+
+x = not relevant
+? = not determined 
+
+                    1        2        3        4        5        6        7        8
+ACCIDENTS   |       T|       T|       T|       T|       F|       F|       F|       F|
+TYPE OF CAR |       T|       T|       F|       x|       T|       T|       F|       F|
+AGE OF CAR  |       x|       x|       T|       F|       T|       F|       T|       F|
+
+INSURE      |       F|       F|       ?|       F|       T|       T|       T|       T|
+SPECIAL RATE|       x|       x|       ?|       x|       T|       T|       T|       F|

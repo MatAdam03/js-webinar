@@ -1,0 +1,13 @@
+CONDITION TESTING
+public boolean isFighter(boolean isArmored,boolean hasBombs, boolean canFly){
+    if((isArmored || hasBombs) && canFly){
+        return true;
+    } else {
+        return false;
+    }
+};
+TESTCASES
+1:isArmored:true    hasBombs:true   canFly:true   ||| result: true
+2:isArmored:false    hasBombs:true   canFly:false    ||| result: true
+3:isArmored:false    hasBombs:false   canFly:true   ||| result: false
+

@@ -7,7 +7,9 @@
     "test:module-2": "mocha module-2/test/**/*.spec.js",
     "test:module-3": "mocha module-3/test/**/*.spec.js",
     "test:module-4": "mocha module-4/test/**/*.spec.js",
+    "wd:update": "webdriver-manager update",
     "test:module-5": "cucumber-js module-5/features/EPAM.feature --require module-5/step_definitions/*.js",
+    "test:cucumber": "protractor module-5/protractor.config.js",
     "test:plus": "mocha plus/test/**/*.spec.js"
   },
   "repository": {
@@ -22,8 +24,12 @@
   "homepage": "https://github.com/szikszail/js-webinar#readme",
   "dependencies": {
     "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
     "cucumber": "^6.0.5",
     "mocha": "^7.0.0",
+    "protractor": "7.0.0",
+    "protractor-cucumber-framework": "^6.2.1",
+    "require-it": "^2.0.0",
     "sinon": "^8.0.4"
   }
 }

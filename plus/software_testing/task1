@@ -1,0 +1,39 @@
+Bundary Value Analysis
+
+Missing value after 19:30 and befroe 9:30. When does it change?
+What happens when the time is exactly on a boundary, like 9:30.
+
+
+
+Partitions                          Decision
+<9:30                               NO DISCOUNT
+9:30-16:00                          DISCOUNT
+16:00-19:30                         NO DISCOUNT
+>19:30                              DISCOUNT
+
+
+Test cases                          Decision
+8:00                                ?
+
+9:28                                NO DISCOUNT
+9:29                                NO DISCOUNT
+9:30                                ?
+9:31                                DISCOUNT
+
+12:00                               DISCOUNT
+
+15:58                               DISCOUNT
+15:59                               DISCOUNT
+16:00                               ?
+16:01                               NO DISCOUNT
+16:02                               NO DISCOUNT
+
+18:54                               NO DISCOUNT
+
+19:28                               NO DISCOUNT
+19:29                               NO DISCOUNT
+19:30                               ?
+19:31                               DISCOUNT
+19:32                               DISCOUNT
+
+01:00                               ?                                                          

@@ -1,0 +1,14 @@
+DECISION TESTING
+
+public void large(int A, int B){
+    if((A+B)>100) {
+        System.out.printLn("Large");
+    }
+    if(A>50) {
+        System.out.printLn("P Large");
+    }
+};
+
+TESTCASES
+1. A:10      B:100  ||| result: Large
+2. A:60      B:30   ||| result: P Large

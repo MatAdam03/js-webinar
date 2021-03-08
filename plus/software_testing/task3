@@ -1,0 +1,20 @@
+STATEMENT TESTING
+public static void weekPhase(String day){
+    switch(day) {
+        case "Monday":
+        case "Tuesday":
+        case "Wednesday":
+        case "Thursday":
+        case "Friday":
+            System.out.println("It's weekday, let's get to work.");
+            break;
+        case "Saturday":
+        case "Sunday":
+            System.out.println("Weekend! Let's go to the beach!");
+            break;
+    }
+};
+TESTCASES
+1:day = "Wednesday" || result:System.out.println("It's weekday, let's get to work.");
+2:day = "Sunday" || result:System.out.println("Weekend! Let's go to the beach!");
+

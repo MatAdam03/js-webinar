@@ -1,0 +1,14 @@
+[
+    {
+        "Country": "Hungary",
+        "City": "Debrecen",
+        "Position": "Software Test Engineering",
+        "JobTitle":"Test Automation Engineer"
+    },
+    {
+        "Country": "Belarus",
+        "City": "Minsk",
+        "Position": "Cloud & DevOps",
+        "JobTitle":"DevOps Engineer"
+    }
+]
