@@ -1,7 +1,7 @@
 exports.config = {
     directConnect:true,
     capabilities:{
-        'browserName':'firefox'
+        'browserName':'chrome'
     },
     framework: 'mocha',
     specs:['Homepage.spec.js',
