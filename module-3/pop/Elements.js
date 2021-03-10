@@ -30,8 +30,9 @@ class Elements extends Element {
     all(){        
         return Protractor.element.all(this.locator)
     }
+
     get(n){
-        return n
+        return Protractor.element.all(this.locator).get(n)
     }
 
 }

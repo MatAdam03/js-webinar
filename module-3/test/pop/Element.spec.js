@@ -1,7 +1,8 @@
 //const ElementFinder = require('../mock/ElementFinder');
 const Element = require('../../pop/Element');
 const expect = require('chai').expect;
-const { browser, element, ElementFinder } = require('protractor');
+const ElementFinder = require('../mock/ElementFinder');
+const Protractor = require('protractor');
 describe('Element Class', () => {
     beforeEach(() => {
         global.element = ElementFinder.element;
@@ -10,7 +11,7 @@ describe('Element Class', () => {
     afterEach(() => {
         delete global.element;
     });
-
+    //TODO asdfasdf
     it('should be defined', () => {
         expect(Element).to.be.instanceOf(Function);
     });
@@ -85,7 +86,7 @@ describe('Element Class', () => {
 
             const pElement = element.get();
 
-            //expect(pElement).to.be.instanceOf(ElementFinder);
+            expect(pElement).to.be.instanceOf(Protractor.ElementFinder);
            
             expect(pElement.locator().value).to.equal('body');
         });
@@ -97,7 +98,7 @@ describe('Element Class', () => {
 
             const pElement = element.get('Title');
 
-           // expect(pElement).to.be.instanceOf(ElementFinder);
+            expect(pElement).to.be.instanceOf(Protractor.ElementFinder);
             expect(pElement.locator().value).to.equal('h1');
         });
 
